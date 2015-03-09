@@ -1,4 +1,29 @@
 #!/bin/bash
+b=0
+if [ $# -eq 0 ]
+then
+	echo
+	echo "Inserire almeno un argomento!"
+	exit 2
+fi
+for i in $@
+do
+	if [ -e $i ]
+	then
+		b=1
+		break
+	fi
+done
+
+echo
+if [ $b -eq 1 ]
+then
+	echo "Almeno un file trovato"
+	exit 0
+else
+	echo "Nessun file trovato"
+	exit 1
+fi
 
 # Riceve uno o piu' argomenti da riga di comando.
 # Ogni argomento contiene il nome di un file.
